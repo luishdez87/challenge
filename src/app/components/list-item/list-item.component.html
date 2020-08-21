@@ -1,0 +1,8 @@
+<div class="item" >
+  <img class="image" [src]="data?.sprites.front_default" [alt]="data.name"/>
+  <p class="name"> {{data?.name}} </p>
+  <p class="type"> {{ retrieveType(data) }} </p>
+  <div class="stats">
+    <p class="bits" *ngFor="let stat of data?.stats"> {{stat.stat.name}}: {{stat.base_stat}} </p>
+  </div>
+</div>

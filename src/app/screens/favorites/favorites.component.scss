@@ -1,0 +1,41 @@
+.favorites-container {
+  padding: 20px 40px;
+}
+
+.back {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  p {
+    margin: 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.headers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.favorites-grid {
+  border-bottom: solid 1px gray;
+}
+
+.search-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.flex {
+  display: flex;
+}
+
+.w-80 {
+  width: 80px;
+}

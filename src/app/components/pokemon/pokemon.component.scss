@@ -1,0 +1,86 @@
+
+.pokemon-container {
+  display: grid;
+  grid-template-areas:
+  'title title title title'
+  'sprite data moves moves'
+  'locations data moves moves'
+  'button button button button'
+  ;
+  gap: 10px;
+}
+
+.title {
+  grid-area: title;
+}
+
+.pokemon-sprite {
+  grid-area: sprite;
+  height: 200px;
+  width: auto;
+}
+
+.pokemon-data {
+  grid-area: data;
+}
+
+.button {
+  grid-area: button;
+  display: flex;
+  justify-content: center;
+
+  button {
+    background-color: lightgrey;
+    border: none;
+    width: 200px;
+    height: 50px;
+    animation: blink 2.5s infinite both;
+      &:hover {
+    cursor:  pointer;
+    }
+  }
+}
+
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+.stats {
+  grid-area: stats;
+  border: dotted 3px black;
+  padding: 5px 10px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.locations {
+  grid-area: locations;
+
+  .scroll {
+    height: 100px;
+    overflow-y: scroll;
+  }
+}
+
+.moves {
+  grid-area: moves;
+
+  .moves-scroll {
+    height: 200px;
+    overflow-y: scroll;
+  }
+}
+
+.move {
+  background-color: lightgrey;
+}

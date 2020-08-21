@@ -1,0 +1,39 @@
+<!-- | async -->
+
+<div class="favorites-container">
+  <div class="back" [routerLink]="['../landing']" >
+    <mat-icon class="navigate" > navigate_before </mat-icon>
+    <p class="bits"> Back </p>
+  </div>
+  <p class="bits title" align="center"> Favorites </p>
+  <div class="headers">
+    <p class="bits"> Image </p>
+    <p class="bits"> Name </p>
+    <p class="bits"> Type </p>
+    <p class="bits"> Stats </p>
+
+  </div>
+  <div *ngIf="(favorites | async )?.length > 15" class="search-grid">
+    <div></div>
+    <div></div>
+    <mat-form-field>
+      <input matInput placeholder="search by type" [(ngModel)]="type" />
+    </mat-form-field>
+    <div class="flex">
+      <mat-form-field class="w-80">
+        <mat-label> Stat </mat-label>
+        <mat-select [(ngModel)]="stat" >
+          <mat-option *ngFor="let stat of stats" [value]="stat.name" >
+            {{stat.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="input the value" [(ngModel)]="value" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div *ngFor="let f of favorites | async | type:type | stat: stat: value; let index  = index  " class="favorites-grid" >
+    <app-list-item *ngIf="f" [data]="f"></app-list-item>
+  </div>
+</div>

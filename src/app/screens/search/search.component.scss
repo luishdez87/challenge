@@ -1,0 +1,28 @@
+.search {
+  display: flex;
+  padding: 20px 40px;
+}
+
+.back {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  p {
+    margin: 0;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.search-box {
+  display: flex;
+  align-self: center;
+  margin: 0 auto;
+}
+
+.pokemon-container {
+  padding: 20px 40px;
+}

@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.bits {
+  margin: 0;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.mat-icon.navigate {
+  height: 50px !important;
+  width: 50px !important;
+  font-size: 50px;
+}

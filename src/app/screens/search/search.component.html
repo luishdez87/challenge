@@ -1,0 +1,18 @@
+<div class="search">
+  <div class="back" [routerLink]="['../landing']" >
+    <mat-icon class="navigate" > navigate_before </mat-icon>
+    <p class="bits"> Back </p>
+  </div>
+  <form [formGroup]="search" class="search-box" (ngSubmit)="triggerSearch()" >
+    <mat-form-field appearance="legacy">
+      <mat-label>Search pokemon by name...</mat-label>
+      <input matInput formControlName="search" />
+      <mat-icon matSuffix (click)="triggerSearch()">search</mat-icon>
+    </mat-form-field>
+  </form>
+</div>
+<div class="pokemon-container">
+  <app-pokemon *ngIf="show" [data]="componentData" [isSearching]="true"
+  (addToFavorite)="addToFavorites($event)"
+  ></app-pokemon>
+</div>
