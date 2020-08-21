@@ -15,6 +15,8 @@ export class TypePipe implements PipeTransform {
         if (d.types.find(t => t.type.name.includes(type))) {
           return d;
         }
+      } else {
+        return;
       }
     });
   }

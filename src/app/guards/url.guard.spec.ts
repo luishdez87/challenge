@@ -1,8 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 
 import { UrlGuard } from './url.guard';
-import { Router } from '@angular/router';
+import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { RouterStub } from '../test-utils/router.mock';
+import { RouteMock } from '../test-utils/route.mock';
+import { StorageService } from '../services/storage.service';
+import { of } from 'rxjs';
 
 describe('UrlGuard', () => {
   let guard: UrlGuard;
@@ -13,7 +16,16 @@ describe('UrlGuard', () => {
         {
           provide: Router,
           useClass: RouterStub
-        }
+        },
+        {
+          provide: ActivatedRouteSnapshot,
+          useValue: RouteMock
+        },
+        {
+          provide: RouterStateSnapshot,
+          useValue: {}
+        },
+        StorageService
       ]
     });
     guard = TestBed.inject(UrlGuard);
@@ -22,4 +34,14 @@ describe('UrlGuard', () => {
   it('should be created', () => {
     expect(guard).toBeTruthy();
   });
+
+  it('should return true on activation', () => {
+
+    const route = TestBed.get(ActivatedRouteSnapshot);
+    const snapShot = TestBed.get(RouterStateSnapshot);
+
+    expect(guard.canActivate(route, snapShot)).toBe(true);
+
+  });
+
 });
